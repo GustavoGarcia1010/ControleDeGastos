@@ -69,6 +69,7 @@ O sistema segue o padrão **MVC**, separando as responsabilidades para facilitar
 ├── app.js                 # Configuração do servidor Express
 └── server.js              # Inicialização do servidor Node.js
 
+```
 
     ⚙️ Instalação e Configuração
     Siga os passos abaixo para configurar o ambiente de execução em sua máquina local.
@@ -104,4 +105,4 @@ O sistema segue o padrão **MVC**, separando as responsabilidades para facilitar
 
     # Para produção (execução padrão)
     npm start
-```
+
