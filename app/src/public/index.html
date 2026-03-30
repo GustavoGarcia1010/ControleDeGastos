@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal - Sistema de Gestão Financeira</title>
+    <style>
+        :root {
+            --cor-primaria: #27ae60;
+            --cor-primaria-dark: #219150;
+            --cor-dark: #111;
+            --cor-light: #f8f9fa;
+            --transicao: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth; 
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--cor-light);
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .cabecalho-principal {
+            background-color: rgba(17, 17, 17, 0.95);
+            backdrop-filter: blur(10px); 
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            display: flex;
+            justify-content: space-between; 
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo h1 {
+            color: white;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+        }
+
+        .logo span { color: var(--cor-primaria); }
+
+        .listaMenu {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .listaMenu li a {
+            color: #ddd;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: var(--transicao);
+            position: relative;
+        }
+
+        .listaMenu li a:hover { color: white; }
+
+        .listaMenu li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--cor-primaria);
+            transition: var(--transicao);
+        }
+
+        .listaMenu li a:hover::after { width: 100%; }
+
+        .btn-menu-login {
+            background-color: var(--cor-primaria);
+            color: white !important;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: 600 !important;
+        }
+
+        .menu-mobile-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 1100;
+        }
+
+        .hamburguer-icon {
+            display: block;
+            width: 28px;
+            height: 2px;
+            background: white;
+            position: relative;
+            transition: 0.4s;
+        }
+
+        .hamburguer-icon::before, .hamburguer-icon::after {
+            content: '';
+            display: block;
+            width: 28px;
+            height: 2px;
+            background: white;
+            position: absolute;
+            transition: 0.4s;
+        }
+
+        .hamburguer-icon::before { top: -8px; }
+        .hamburguer-icon::after { bottom: 8px; }
+
+        .nav-menu.active .hamburguer-icon { background: transparent; }
+        .nav-menu.active .hamburguer-icon::before { transform: rotate(45deg); top: 0; }
+        .nav-menu.active .hamburguer-icon::after { transform: rotate(-45deg); bottom: 0; }
+
+        .hero-container {
+            position: relative;
+            height: 85vh;
+            overflow: hidden; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 120%; 
+            background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), 
+                        url('assets/Img/cartao.jpg') center/cover no-repeat;
+            z-index: -1;
+            will-change: transform; 
+        }
+
+        .hero { max-width: 850px; color: white; text-align: center; padding: 20px; }
+        .hero h2 { font-size: clamp(2.2rem, 8vw, 4rem); line-height: 1.1; margin-bottom: 25px; font-weight: 800; }
+        .hero p { font-size: clamp(1.1rem, 3vw, 1.4rem); margin-bottom: 40px; color: #ddd; }
+
+        .acoes { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        .btn { 
+            padding: 18px 40px; 
+            border-radius: 12px; 
+            text-decoration: none; 
+            font-weight: 700; 
+            transition: var(--transicao); 
+            font-size: 1.1rem;
+        }
+        .btn-registrar { background: var(--cor-primaria); color: white; }
+        .btn-entrar { background: transparent; color: white; border: 2px solid white; }
+        .btn:hover { transform: translateY(-5px); box-shadow: 0 12px 25px rgba(0,0,0,0.4); }
+
+        .recursos-container { padding: 100px 5%; background: white; position: relative; z-index: 10; }
+        .info-secao {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .info-card {
+            padding: 60px 40px;
+            border-radius: 24px;
+            background: var(--cor-light);
+            text-align: center;
+            transition: var(--transicao);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .info-card:hover { transform: translateY(-12px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); border-color: var(--cor-primaria); }
+        .info-card span { font-size: 4rem; display: block; margin-bottom: 25px; }
+
+        @media (max-width: 992px) {
+            .menu-mobile-btn { display: block; }
+            .listaMenu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 100%;
+                height: 100vh;
+                background: var(--cor-dark);
+                flex-direction: column;
+                justify-content: center;
+                transition: 0.6s cubic-bezier(0.7, 0, 0.3, 1);
+            }
+            .nav-menu.active .listaMenu { right: 0; }
+            .listaMenu li a { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="cabecalho-principal">
+        <div class="logo">
+            <h1><span>Finance</span> 💳</h1>
+        </div>
+        <nav class="nav-menu" id="nav">
+            <button class="menu-mobile-btn" id="btn-mobile" aria-label="Abrir menu">
+                <span class="hamburguer-icon"></span>
+            </button>
+            <ul class="listaMenu">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="#recursos">Recursos</a></li>
+                <li><a href="#sobre">Sobre nós</a></li>
+                <li><a href="/Acesso" class="btn-menu-login">Entrar</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="inicio" class="hero-container">
+        <div class="hero-bg" id="parallax-bg"></div>
+        <section class="hero">
+            <h2>Suas finanças em um<br><span>novo nível.</span></h2>
+            <p>A ferramenta definitiva para quem busca liberdade e controle total do patrimônio.</p>
+            <div class="acoes">
+                <a href="registro.html" class="btn btn-registrar">Começar Agora</a>
+                <a href="login.html" class="btn btn-entrar">Explorar Tour</a>
+            </div>
+        </section>
+    </main>
+
+    <section class="recursos-container" id="recursos">
+        <div class="info-secao">
+            <div class="info-card">
+                <span>📊</span>
+                <h3>Inteligência de Dados</h3>
+                <p>Gráficos que contam a história do seu dinheiro de forma simples.</p>
+            </div>
+            <div class="info-card">
+                <span>🛡️</span>
+                <h3>Segurança Máxima</h3>
+                <p>Sua privacidade é nossa prioridade número um.</p>
+            </div>
+            <div class="info-card">
+                <span>⚡</span>
+                <h3>Sincronização Real</h3>
+                <p>Acesse e atualize seus dados instantaneamente em qualquer dispositivo.</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const btnMobile = document.getElementById('btn-mobile');
+        const nav = document.getElementById('nav');
+
+        function toggleMenu(event) {
+            if (event.type === 'touchstart') event.preventDefault();
+            nav.classList.toggle('active');
+        }
+
+        btnMobile.addEventListener('click', toggleMenu);
+        btnMobile.addEventListener('touchstart', toggleMenu);
+
+        const parallaxBg = document.getElementById('parallax-bg');
+        
+        window.addEventListener('scroll', () => {
+            if (window.innerWidth > 992) {
+                const scrollValue = window.scrollY;
+                parallaxBg.style.transform = `translate3d(0, ${scrollValue * 0.8}px, 0)`;
+            }
+        }, { passive: true });
+    </script>
+</body>
+</html>
