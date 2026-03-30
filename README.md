@@ -11,8 +11,8 @@ Este é um sistema de gerenciamento administrativo e financeiro de alta performa
 > Interface limpa e responsiva para garantir a segurança dos dados do usuário.
 
 <p align="center">
-  <img src="https://cdn.discordapp.com/attachments/1233807998007382149/1487986861904367736/image.png" alt="Página de Login" width="45%">
-  <img src="https://cdn.discordapp.com/attachments/1233807998007382149/1487987035741360128/image.png" alt="Página de Cadastro" width="45%">
+  <img src="https://cdn.discordapp.com/attachments/1233807998007382149/1487986861904367736/image.png?ex=69cb2341&is=69c9d1c1&hm=d4fb4ea85fc627abb55c5ee481124bec6846d223fd00ea1b339280dd6941fd95&" alt="Página de Login" width="45%">
+  <img src="https://cdn.discordapp.com/attachments/1233807998007382149/1487987035741360128/image.png?ex=69cb236a&is=69c9d1ea&hm=4bc458b4f4cfc7d3027039cab7dbffcad8a7f83e0b3aa09e93ea0f0b12ae0064&" alt="Página de Cadastro" width="45%">
 </p>
 
 ### 📊 Painel Administrativo
@@ -20,7 +20,7 @@ Este é um sistema de gerenciamento administrativo e financeiro de alta performa
 > Dashboard centralizado com métricas financeiras e controle de fluxo em tempo real.
 
 <p align="center">
-  <img src="https://cdn.discordapp.com/attachments/1233807998007382149/1487987186438770728/image.png" alt="Dashboard do Sistema" width="90%">
+  <img src="https://cdn.discordapp.com/attachments/1233807998007382149/1487987186438770728/image.png?ex=69cb238e&is=69c9d20e&hm=2f08fa22c00ee8a28930c5ce8ce8f5b41c2c3d7b406ae457392d1f08808fe964&" alt="Dashboard do Sistema" width="90%">
 </p>
 
 ---
