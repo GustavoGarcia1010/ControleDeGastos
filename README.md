@@ -15,6 +15,14 @@ Este é um sistema de gerenciamento administrativo e financeiro de alta performa
   <img src="https://cdn.discordapp.com/attachments/1233807998007382149/1487987035741360128/image.png?ex=69cb236a&is=69c9d1ea&hm=4bc458b4f4cfc7d3027039cab7dbffcad8a7f83e0b3aa09e93ea0f0b12ae0064&" alt="Página de Cadastro" width="45%">
 </p>
 
+### 📊 Página Principal
+
+<p align="center">
+  <img src="https://cdn.discordapp.com/attachments/1233807998007382149/1487994320710664192/image.png?ex=69cb2a33&is=69c9d8b3&hm=57a550310987c14c1d4891772c2a195a0c0538987d101cc2a66462ad4efbb16d&" alt="Dashboard do Sistema" width="90%">
+</p>
+
+---
+
 ### 📊 Painel Administrativo
 
 > Dashboard centralizado com métricas financeiras e controle de fluxo em tempo real.
